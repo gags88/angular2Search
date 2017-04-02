@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 class="mb-1 ml-5 mt-5"></h3>
+        <div class="md-form">
+          <i class="material-icons prefix">&#xE8B6;</i>
+          <!-- searchTerm.next -->
+          <input type="text" id="form9" class="form-control validate" #term (input)="searchNow(term.value)">
+          <label for="form9" data-error="wrong" data-success="right">Search here (At least 2 characters)..</label>
+        </div>
+      </div>
+
+    </div>
+    <div class="row mt-3">
+      <div class="col-sm-12">
+        <div class="list-group" *ngIf="term.value.length>2">
+          <span *ngFor="let res of resp">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{res.title}}</h5>
+              <small># {{res.id}}</small>
+            </div>
+            <p class="mb-1">{{res.body}}</p>
+            <small >Donec id elit non mi porta.</small>
+          </a>
+          </span>
+          <button type="button" class="btn btn-primary" (click)="searchNow(term.value)">Load More</button>
+        </div>
+      </div>
+    </div>
+  </div>
